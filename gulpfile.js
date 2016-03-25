@@ -161,7 +161,7 @@ gulp.task('imageToDataURI', function(product) {
   return gulp.src(path.src.common[1] + '/images/uri/**/*')
     .pipe(imageDataURI({
       template: {
-        file: './templates/data-uri-template.css'
+        file: './templates/data-uri.css'
       },
       customClass: function(className, file) {
         var string = className + '.';

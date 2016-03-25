@@ -1,8 +1,8 @@
 {
-  "name": "FEBuilder",
-  "version": "1.0.1",
-  "description": "It is Optimized for Web Agency Front-end Developer. To use Sass",
-  "main": "index.js",
+  "name": "Makeulike Front-end Scaffolding",
+  "version": "1.2",
+  "description": "It is Optimized for Web Agency Front-end Developer",
+  "main": "gulp.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
