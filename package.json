@@ -1,6 +1,6 @@
 {
-  "name": "Makeulike Front-end Scaffolding",
-  "version": "1.2",
+  "name": "Makeulike-Front-End-Scaffolding",
+  "version": "1.1.2",
   "description": "It is Optimized for Web Agency Front-end Developer",
   "main": "gulp.js",
   "scripts": {
