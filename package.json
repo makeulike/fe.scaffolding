@@ -11,12 +11,14 @@
   "devDependencies": {
     "browser-sync": "^2.9.11",
     "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.2",
     "gulp-batch": "^1.0.5",
     "gulp-bower": "0.0.10",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.6.0",
     "gulp-htmlclean": "^2.7.3",
     "gulp-htmltidy": "^0.2.2",
+    "gulp-image-data-uri": "^1.2.1",
     "gulp-imagemin": "^2.3.0",
     "gulp-jshint": "^1.12.0",
     "gulp-livereload": "^3.8.1",
@@ -38,11 +40,11 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.4",
     "url": "^0.11.0",
-    "yargs": "^3.29.0"
-  },
-  "dependencies": {
+    "yargs": "^3.29.0",    
     "gulp-connect-php": "0.0.7",
     "imagemin-pngquant": "^4.2.0",
     "imagesloaded": "^4.1.0"
+  },
+  "dependencies": {
   }
 }

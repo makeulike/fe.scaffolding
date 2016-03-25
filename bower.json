@@ -1,16 +1,12 @@
 {
-  "name": "Bower for Gulp",
+  "name": "Makeulike Front-end Bower Package Manager",
   "version": "0.0.1",
   "license": "MIT",
   "dependencies": {
-    "jquery": "1.11.3",
+    "jquery": "1.12.2",
     "jquery-migrate": "~1.2.1",
-    "handlebars": "~4.0.5",
-    "parallax": "~2.1.3",
-    "gsap": "~1.18.2",
-    "imagesloaded": "~4.1.0"
+    "gsap": "latest"
   },
   "devDependencies": {
-    "sly": "~1.6.1"
   }
 }
