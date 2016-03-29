@@ -28,7 +28,7 @@ module.exports = {
     scss: '/scss',
     css: '/css',
     images: '/images',
-    font: '/fonts'
+    font: '/fonts',
     depth: "/**/**/**/**/**/**"
   },
   extension: {
