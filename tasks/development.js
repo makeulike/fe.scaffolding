@@ -14,8 +14,8 @@ var config = require('./config');
 
 /** Copy Initial Files */
 gulp.task('init', function() {
-  return gulp.src(config.path.initial + depth)
-    .pipe(gulp.dest(config.path.src.common[0]));
+  return gulp.src(config.path.initial + config.path.depth)
+    .pipe(gulp.dest(config.path.src[0]));
 });
 
 /** Sass Development */
