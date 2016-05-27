@@ -57,6 +57,7 @@ gulp.task('js:lint:mobile', function() {
 /** Development Tasks */
 gulp.task('develop', function(product, proxyHost, proxyContext) {
 
+
   /**
    * 각 프로젝트 별 개발 경로를 SRC로 변환하는 작업이 필요.
    * @date 151113
@@ -69,17 +70,28 @@ gulp.task('develop', function(product, proxyHost, proxyContext) {
   /**
    * 프록시 서버 세팅 (매개변수 이용)
    * @date 160105
-   */
+   * @deprecated 
   if (proxyHost === null) proxyHost = 'http://localhost';
   if (proxyContext === null) proxyContext = '/api';
+  */
 
   /**
-   * 프록시 서버 사용
+   * 프록시 서버 수정 (다중 Context 이용 가능하게)
    * @date 151113
    */
-  var proxyURL = proxyHost + proxyContext;
-  var proxyOptions = url.parse(proxyURL);
-  proxyOptions.route = proxyContext;
+  var proxyURL = [];
+  var proxyContextArray = proxyContext.split(',');
+  var proxyOptions = [];
+  var proxyMiddleware = [];
+  
+  for(var i = 0; i < proxyContextArray.length; i++){
+
+    proxyURL[i] = proxyHost + proxyContextArray[i];
+    proxyOptions[i] = url.parse(proxyURL[i]);
+    proxyOptions[i].route = proxyContextArray[i] ;
+
+    proxyMiddleware[i] = proxy(proxyOptions[i])
+  }
 
   /**
    * BrowserSync 사용 (with Proxy Middleware)
@@ -87,7 +99,7 @@ gulp.task('develop', function(product, proxyHost, proxyContext) {
   browserSync.init({
     server: {
       baseDir: ["./", config.path.src[0]],
-      middleware: [proxy(proxyOptions)]
+      middleware: proxyMiddleware
     }
   });
 
