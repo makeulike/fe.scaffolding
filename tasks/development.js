@@ -71,9 +71,18 @@ gulp.task('develop', function(product, proxyHost, proxyContext) {
    * 프록시 서버 세팅 (매개변수 이용)
    * @date 160105
    * @deprecated 
-  if (proxyHost === null) proxyHost = 'http://localhost';
-  if (proxyContext === null) proxyContext = '/api';
   */
+  if (proxyHost === null) {
+    proxyHost = 'http://localhost'; 
+  } else {
+    procyHost = [];
+  }
+  if (proxyContext === null) {
+    proxyContext = '/api';
+  } else {
+    procyContest = [];
+  }
+  
 
   /**
    * 프록시 서버 수정 (다중 Context 이용 가능하게)
