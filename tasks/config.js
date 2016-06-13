@@ -1,11 +1,4 @@
-var uglify = require('gulp-uglify'),
-  minifyCss = require('gulp-minify-css'); /// 실제 사용 여부 확인
-
-var pngquant = require('imagemin-pngquant');
-
-/**
- * Configuration Variables
- */
+/* Configuration Variables */
 module.exports = {
   path: {
     initial: './src_init',
@@ -47,19 +40,5 @@ module.exports = {
       folder[0] + this.path[fileExt] + '/**' + this.extension[fileExt],
       folder[1] + this.path[fileExt] + '/**' + this.extension[fileExt]
     ];
-  },
-  usemin: {
-    inlinejs: [uglify()],
-    inlinecss: [minifyCss(), 'concat']
-  },
-  sass: {
-    build: {
-      outputStyle: 'compressed'
-    }
-  },
-  imagemin: {
-    progressive: true,
-    svgoPlugins: [{ removeViewBox: false }],
-    use: [pngquant()]
   }
 };

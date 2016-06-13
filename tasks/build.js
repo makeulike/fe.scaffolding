@@ -3,6 +3,7 @@ var gulp = require('gulp-param')(require('gulp'), process.argv),
   clean = require('gulp-clean'),
   merge = require('gulp-merge'),
   uglify = require('gulp-uglify'),
+  minifyCss = require('gulp-minify-css')
   usemin = require('gulp-usemin'),
   sass = require('gulp-sass'),
   imagemin = require('gulp-imagemin');
@@ -65,46 +66,64 @@ gulp.task('copy:font:mobile', function() {
 /** Usemin */
 gulp.task('usemin:pc', function() {
   return gulp.src( config.path.tmp[0] + config.extension.html )
-    .pipe(usemin(config.usemin))
+    .pipe(usemin({
+      inlinejs: [uglify()],
+      inlinecss: [minifyCss(), 'concat']
+    }))
     .pipe(gulp.dest(config.path.build[0]));
 });
 
 gulp.task('usemin:mobile', function() {
   return mobile = gulp.src( config.path.tmp[1] + config.extension.html )
-    .pipe(usemin(config.usemin))
+    .pipe(usemin({
+      inlinejs: [uglify()],
+      inlinecss: [minifyCss(), 'concat']
+    }))
     .pipe(gulp.dest(config.path.build[1]));
 });
 
 /** Sass Build */
 gulp.task('sass:build:pc', function() {
   return gulp.src(config.path.tmp[0] + config.path.scss + config.extension.scss)
-    .pipe(sass(config.sass.build))
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }))
     .pipe(gulp.dest(config.path.build[0] + config.path.css));
 });
 
 gulp.task('sass:build:mobile', function() {
   return gulp.src(config.path.tmp[1] + config.path.scss + config.extension.scss)
-    .pipe(sass(config.sass.build))
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }))
     .pipe(gulp.dest(config.path.build[1] + config.path.css));
 });
 
 /** Images Optimization (imagemin) */
 gulp.task('imagemin:pc', function() {
   return gulp.src(config.path.tmp[0] + config.path.images + config.path.depth)
-    .pipe(imagemin(config.imagemin))
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{ removeViewBox: false }],
+      use: [pngquant()]
+    }))
     .pipe(gulp.dest(config.path.build[0] + config.path.images));
 });
 
 gulp.task('imagemin:mobile', function() {
   return gulp.src(config.path.tmp[1] + config.path.images + config.path.depth)
-    .pipe(imagemin(config.imagemin))
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{ removeViewBox: false }],
+      use: [pngquant()]
+    }))
     .pipe(gulp.dest(config.path.build[1] + config.path.images));
 });
 
 /** Uglify Assets */
 gulp.task('uglify:assets:pc', ['usemin:pc'], function() {
   return gulp.src( config.path.build[0] + config.path.assets + config.path.js + config.extension.js )
-    .pipe(uglify())
+    .pipe(uglify({preserveComments: "license"}))
     .pipe(gulp.dest( config.path.build[0] + config.path.assets + config.path.js ))
 });
 

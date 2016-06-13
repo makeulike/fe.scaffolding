@@ -3,6 +3,7 @@ var gulp = require('gulp-param')(require('gulp'), process.argv),
   watch = require('gulp-watch'),
   batch = require('gulp-batch'),
   sass = require('gulp-sass'),
+  concat = require('gulp-concat'),
   jshint = require('gulp-jshint');
 
 /** Middlewares */
@@ -56,8 +57,6 @@ gulp.task('js:lint:mobile', function() {
 
 /** Development Tasks */
 gulp.task('develop', function(product, proxyHost, proxyContext) {
-
-
   /**
    * 각 프로젝트 별 개발 경로를 SRC로 변환하는 작업이 필요.
    * @date 151113
@@ -71,9 +70,9 @@ gulp.task('develop', function(product, proxyHost, proxyContext) {
    * 프록시 서버 세팅 (매개변수 이용)
    * @date 160105
    * @deprecated 
-  */
+   */
   if (proxyHost === null) {
-    proxyHost = 'http://localhost'; 
+    proxyHost = 'http://localhost';
   } else {
     procyHost = [];
   }
@@ -82,7 +81,7 @@ gulp.task('develop', function(product, proxyHost, proxyContext) {
   } else {
     procyContest = [];
   }
-  
+
 
   /**
    * 프록시 서버 수정 (다중 Context 이용 가능하게)
@@ -92,12 +91,12 @@ gulp.task('develop', function(product, proxyHost, proxyContext) {
   var proxyContextArray = proxyContext.split(',');
   var proxyOptions = [];
   var proxyMiddleware = [];
-  
-  for(var i = 0; i < proxyContextArray.length; i++){
+
+  for (var i = 0; i < proxyContextArray.length; i++) {
 
     proxyURL[i] = proxyHost + proxyContextArray[i];
     proxyOptions[i] = url.parse(proxyURL[i]);
-    proxyOptions[i].route = proxyContextArray[i] ;
+    proxyOptions[i].route = proxyContextArray[i];
 
     proxyMiddleware[i] = proxy(proxyOptions[i])
   }
@@ -142,5 +141,4 @@ gulp.task('develop', function(product, proxyHost, proxyContext) {
 
   gulp.watch(config.getFullPath(config.path.src, 'images'))
     .on('change', browserSync.reload);
-
 });
