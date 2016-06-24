@@ -22,6 +22,7 @@ module.exports = {
     css: '/css',
     images: '/images',
     font: '/fonts',
+    swf: '/swf',
     depth: "/**/**/**/**/**/**"
   },
   extension: {

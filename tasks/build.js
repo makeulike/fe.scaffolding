@@ -54,13 +54,22 @@ gulp.task('copy:js:mobile', function() {
  * @date 160329
  */
 gulp.task('copy:font:pc', function() {
-  return gulp.src(config.path.src[0] + config.path.font + config.extension.depth)
+  return gulp.src(config.path.src[0] + config.path.font + config.path.depth)
     .pipe(gulp.dest(config.path.build[0]  + config.path.font));
 });
 
 gulp.task('copy:font:mobile', function() {
-  return gulp.src(config.path.src[1] + config.path.font + config.extension.depth)
+  return gulp.src(config.path.src[1] + config.path.font + config.path.depth)
     .pipe(gulp.dest(config.path.build[1]  + config.path.font));
+});
+
+/** 
+ * Copy SWF
+ * @date 160624
+ */
+gulp.task('copy:swf:pc', function() {
+  return gulp.src(config.path.src[0] + config.path.swf + config.path.depth)
+    .pipe(gulp.dest(config.path.build[0]  + config.path.swf));
 });
 
 /** Usemin */
