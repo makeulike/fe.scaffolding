@@ -9,15 +9,15 @@
 
 ## 설치방법
 1. 콘솔 도구를 이용하여 `git clone https://github.com/makeulike/fe.scaffolding.git` 를 입력
-2. 생성 된 fe.scaffolding 폴더로 진입 (경우에 따라 폴더명을 바꾸어도 됩니다. 단! [] 사이에 한글이 들어가면 안됩니다)
-3. `npm install` 명령을 실행하여 Node.js Package 들을 설치
+2. 생성 된 fe.scaffolding 폴더로 진입<br>(경우에 따라 폴더명을 바꾸어도 됩니다. 단! 윈도우 환경에서는 [] 사이에 한글이 들어가면 안됩니다)
+3. `npm gulp install -g` 명령을 실행하여 gulp 추가 설치
 4. `npm install bower -g` 명령을 실행하여 bower 추가 설치
-5. 'npm gulp install -g' 명령을 실행하여 gulp 추가 설치
-5. `bower install` 명령을 실행하여 패키지 관리자에 기본적으로 설정 되어있는 (bower.json 참조) 패키지들을 설치
-6. [mui](http://github.com/makeulike/fe.mui) 설치진행 
+5. `npm install` 명령을 실행하여 Node.js Package 들을 설치
+6. `bower install` 명령을 실행하여 패키지 관리자에 기본적으로 설정 되어있는 (bower.json 참조) 패키지들을 설치
+7. [mui](http://github.com/makeulike/fe.mui) 설치진행 
 	1. 현재 폴더내에서 `git clone https://github.com/makeulike/fe.mui` 를 입력
 	2. fe.mui 폴더를 mui 폴더로 변경
-7. `gulp develop` 명령 실행
+8. `gulp develop` 명령 실행
 
 ## 사용방법 (명령어)
 Scaffold 폴더는 fe.scaffolding 라고 가정
