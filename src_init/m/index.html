@@ -9,7 +9,8 @@
   <!--
     var UserAgent = navigator.userAgent;
     var UADevice = UserAgent.match(/iPhone|iPod|iPad|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i);
-    var UAVendor = UserAgent.match(/LG|SAMSUNG|Samsung/);
+    var UAVendor = UserAgent.match(/LG|SAMSUNG|Samsung|Apple/);
+
     if ( UADevice === null || UAVendor === null){
       location.href = "../";
     }
@@ -18,17 +19,23 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <main id="viewport">
-    <h1>Hello World</h1>
-    <aside class="ui__scroll-top" style="display: none;">
-      <div>
-        <a href="javascript:void(0)" id="btn-scroll-top">
-          <img src="./images/btn-top.png" alt="TOP">
-        </a>
-      </div>
-    </aside>
-  </main>
+  <!-- @브라우저 영역 -->
+  <div id="viewport">
+    <h1>브라우저 영역</h1>
+    <header>
+      <h2>상단</h2>
+    </header>
+    <main>
+      <h2>내용</h2>
+    </main>
+    <footer>
+      <h2>하단</h2>
+    </footer>    
+  </div>
+
+  <!-- @레이어팝업:  -->
   <div id="" class="modal" data-role="modal">
+    <h1>모델 레이어 팝업 (기본 숨김 영역)</h1>
     <section class="modal-content">
       <!--내용-->
       <a href="javascript:void(0)" data-rel="back" class="modal__close">

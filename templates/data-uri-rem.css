@@ -1,5 +1,5 @@
 .{{className}} {
-    width: {{width}}px;
-    height: {{height}}px;
+    width: rem({{width}}px);
+    height: rem({{height}}px);
     background-image: url("{{dataURISchema}}");
 }
