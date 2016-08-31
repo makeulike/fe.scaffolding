@@ -1,6 +1,6 @@
 {
   "name": "Makeulike-Front-End-Scaffolding",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "It is Optimized for Web Agency Front-end Developer",
   "main": "gulp.js",
   "scripts": {
@@ -49,6 +49,7 @@
     "yargs": "^3.29.0"
   },
   "dependencies": {
-    "image-size": "^0.5.0"
+    "image-size": "^0.5.0",
+    "bower": "^1.7.9"
   }
 }
